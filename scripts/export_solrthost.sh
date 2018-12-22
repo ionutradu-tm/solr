@@ -1,3 +1,3 @@
 #!/bin/bash
 
-source /set_solrhost.sh
+source /scripts/set_solrhost.sh
