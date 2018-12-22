@@ -1,5 +1,5 @@
 FROM solr
-COPY ./scripts /.
+COPY ./scripts /scripts
 USER root
 RUN chmod +x /scripts/*.sh
 USER solr
