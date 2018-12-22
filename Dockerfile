@@ -1,5 +1,6 @@
 FROM solr
-
+COPY ./scripts /.
 USER root
-RUN export SOLR_HOST=$HOST
+RUN chmod +x /scripts/*.sh
 USER solr
+ENTRYPOINT ["/scripts/export_solrthost.sh"]
