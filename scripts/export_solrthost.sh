@@ -1,3 +1,3 @@
 #!/bin/bash
 
-source /scripts/set_solrhost.sh
+source /docker-entrypoint-initdb.d/set_solrhost.sh
