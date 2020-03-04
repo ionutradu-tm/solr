@@ -6,5 +6,8 @@ COPY ./scripts/docker-healthcheck.sh /
 USER root
 RUN chmod +x /docker-entrypoint-initdb.d/*.sh
 RUN chmod +x /docker-healthcheck.sh
-RUN chown -R solr /opt/solr/server/solr 
+RUN chown -R solr /opt/solr/server/solr
+RUN apt-get update -qqy \
+   && apt-get -qqy install jq \
+   && rm -rf /var/lib/apt/lists/*
 USER solr
