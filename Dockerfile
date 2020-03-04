@@ -9,5 +9,5 @@ RUN chmod +x /docker-healthcheck.sh
 RUN chown -R solr /opt/solr/server/solr
 RUN apt-get update -qqy \
    && apt-get -qqy install jq \
-   &&  apt-get clean
+   &&  apt-get clean  --dry-run
 USER solr
