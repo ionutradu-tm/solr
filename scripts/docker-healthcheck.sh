@@ -5,9 +5,9 @@ PORT=${PORT:-8984}
 for COLLECTION in ${COLLECTIONS}
 do
   echo -n "Checking collection ${COLLECTION} "
-  STATUS=$(curl -sf http://localhost:${PORT}/solr/${COLLECTION}/admin/ping?wt=json | jq .status | tr -d \")
+  STATUS=$(/opt/solr/bin/solr  healthcheck -c essentraCatalogCollection4 | jq '.shards[0].replicas[] | select(.url| contains("'"${HOST}"'")) | .status' | tr -d \")
   echo ${STATUS}
-  if [[ ${STATUS} != "OK" ]]; then
+  if [[ ${STATUS} != "active" ]]; then
     NOT_HEALTHY=1
   fi
 done
