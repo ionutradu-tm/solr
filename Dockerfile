@@ -1,4 +1,4 @@
-FROM solr
+FROM solr:8.4.1
 COPY ./scripts/export_solrthost.sh /docker-entrypoint-initdb.d/
 COPY ./scripts/set_solrhost.sh /docker-entrypoint-initdb.d/
 COPY ./solr /opt/solr/server/solr_orig
